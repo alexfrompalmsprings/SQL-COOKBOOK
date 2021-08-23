@@ -103,3 +103,18 @@ CASE
 	ELSE		        'OK'
 END AS Compensation
 FROM emp
+
+-- Limiting the numbers of rows returned
+
+--Problem
+-- you want to limit the number of rows returned in your query.
+-- limit to to only display 5 numbers of rows
+
+-- solution in SSMS
+SELECT TOP 5 * 
+FROM EMP
+
+-- solution in MySQL
+SELECT *
+FROM EMP
+LIMIT 5
