@@ -71,4 +71,17 @@ SELECT *
 WHERE SALARY < 5000
 
 
+-- Concatenating Column Values
+
+-- Problem 
+-- you want to return the values in multiple columns as one column. However, the data comes from two
+-- different columns
+
+SELECT CONCAT(ename, 'WORK AS A ', job) AS Message
+FROM EMP
+
+
+-- solution for MYSQL 
+SELECT ename + 'WORK AS A ' + job AS Message
+FROM EMP
 
