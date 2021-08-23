@@ -94,11 +94,12 @@ FROM EMP
 -- overpaid  > 4000
 -- underpaid < 2000
 -- solution to the error
-SELECT ename, sal,
-	-- conditions to check
-	CASE    WHEN sal <= 2000 THEN 'UnderPaid'
-	        WHEN sal >= 4000 THEN 'OverPaid'
-		ELSE			'OK'
-		END AS Compensation
-
+-- solution to the error
+SELECT ename, sal, 
+CASE 
+	-- the condition statements
+	WHEN sal >= 4000 THEN 'OverPaid'
+	WHEN sal <= 2000 THEN 'UnderPaid'
+	ELSE		        'OK'
+END AS Compensation
 FROM emp
