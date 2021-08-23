@@ -85,3 +85,20 @@ FROM EMP
 SELECT ename + 'WORK AS A ' + job AS Message
 FROM EMP
 
+
+-- Using conditional logic in a SELECT statement
+
+--problem
+-- you want to perform IF-ELSE operations on values in your SELECT statement.
+
+-- overpaid  > 4000
+-- underpaid < 2000
+-- solution to the error
+SELECT ename, sal,
+	-- conditions to check
+	CASE    WHEN sal <= 2000 THEN 'UnderPaid'
+	        WHEN sal >= 4000 THEN 'OverPaid'
+		ELSE			'OK'
+		END AS Compensation
+
+FROM emp
