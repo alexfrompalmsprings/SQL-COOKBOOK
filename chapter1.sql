@@ -63,12 +63,11 @@ WHERE SALARY > 5000
 
 -- solution to the error
 SELECT * 
-    FROM (SELECT
-            sal AS 'SALARY', 
-            comm AS 'Commission', 
-            deptno AS 'Department Number'
-          FROM EMP  
-        ) 
+	FROM (
+                SELECT sal AS 'SALARY', 
+                        comm AS 'Commission', 
+                        deptno AS 'Department Number'
+                FROM EMP ) xNewTable -- this name does not mean anything ehere 
 WHERE SALARY < 5000
 
 
