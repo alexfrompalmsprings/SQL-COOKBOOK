@@ -141,4 +141,15 @@ FROM emp
 WHERE comm IS NULL
 
 
+-- important note
+-- NULL is never equal to anything... the two SELECTS below would not work
+SELECT *
+FROM emp
+WHERE comm = NULL
+
+SELECT *
+FROM emp
+WHERE comm != NULL
+
+
 
