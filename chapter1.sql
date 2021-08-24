@@ -152,4 +152,21 @@ FROM emp
 WHERE comm != NULL
 
 
+-- Transforming NULL into real values
+
+--Problem
+-- you have rows that contain nulls and would like to return non-null values
+-- in place of those nulls 
+SELECT COALESCE(comm, 0)
+FROM EMP
+
+-- Evaluates the arguments in order and returns the current value of the first expression 
+-- that initially doesn't evaluate to NULL. For example
+ SELECT COALESCE(NULL, NULL, 'third_value', 'fourth_value')
+ -- returns the third value because the third value is the FIRST VALUE THAT IS NOT NULL 
+
+
+
+
+
 
