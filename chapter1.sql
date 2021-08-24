@@ -166,7 +166,14 @@ FROM EMP
  -- returns the third value because the third value is the FIRST VALUE THAT IS NOT NULL 
 
 
-
+-- COALESCE 
+-- using a case statement
+SELECT
+	CASE
+	WHEN COMM IS NULL THEN 0
+	ELSE COMM
+	END
+FROM EMP
 
 
 
