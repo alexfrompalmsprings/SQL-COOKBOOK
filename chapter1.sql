@@ -176,4 +176,27 @@ SELECT
 FROM EMP
 
 
+-- Searching for Patterns 
+
+--Problem
+-- you want to return rows that match a particular substring or pattern
+-- return the employeers that contain either an ER or an I
+SELECT ename, ejob
+FROM emp
+WHERE deptno IN (10,20) 
+AND ename LIKE '%I%' OR ename LIKE '%ER' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
