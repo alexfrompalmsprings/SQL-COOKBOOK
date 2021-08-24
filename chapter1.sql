@@ -130,3 +130,15 @@ LIMIT 5
 SELECT TOP 5 ename, job
 FROM EMP
 ORDER BY NEWID()
+
+
+-- Finding NULL values
+
+--Problem
+-- you want to find all rows that are NULL for a particular column
+SELECT *
+FROM emp
+WHERE comm IS NULL
+
+
+
