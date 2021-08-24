@@ -118,3 +118,15 @@ FROM EMP
 SELECT *
 FROM EMP
 LIMIT 5
+
+
+
+-- Return n Random Records from a Table
+
+--Problem
+-- you want to return a specific number of RANDOM records from a Table.
+
+-- modify the query below such that successive executions will produce a different set of five rows
+SELECT TOP 5 ename, job
+FROM EMP
+ORDER BY NEWID()
