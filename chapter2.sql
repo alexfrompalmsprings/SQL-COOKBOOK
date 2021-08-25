@@ -126,3 +126,20 @@ FROM (
 	FROM emp
 	) x
 ORDER BY is_null, comm DESC
+
+
+-- Sorting on Data Dependant Key
+
+--Problem
+-- you want to sort based on some conditional logic; 
+-- ie; job is SALESMAN, you want to sort on the COMM else sort on the SAL
+
+-- use a CASE expression in the ORDER BY clause
+SELECT ename, sal, job, comm
+FROM emp
+ORDER BY (
+		CASE 
+        WHEN JOB = 'Salesman' THEN COMM
+        ELSE SAL
+        END
+		)
