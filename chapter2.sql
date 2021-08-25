@@ -19,3 +19,17 @@ SELECT ename,
 FROM emp
 WHERE deptno = 10
 ORDER BY 3 DESC
+
+
+-- Sorting by Multiple Fields
+
+--Problem
+-- you want to sort the rows from EMP by DEPTNO ascending, then by salary desc
+SELECT empno,
+		deptno, 
+		sal, 
+		ename, 
+		job
+FROM emp
+ORDER BY  deptno ASC, sal DESC
+
