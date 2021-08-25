@@ -64,3 +64,19 @@ SELECT ename,
 	comm
 FROM emp
 ORDER BY comm DESC
+
+-- use a CASE expression to conditionally sort the column to create a FLAG with two values
+--                      one =           NULLS
+--                      other value =   NOT NULLS
+SELECT ename, 
+	sal, 
+	comm
+FROM (
+	SELECT ename, sal, comm,
+		CASE
+		WHEN comm IS NULL THEN 0
+		ELSE 1
+		END AS is_null
+	FROM emp
+	) x
+ORDER BY is_null DESC, comm, sal ASC
