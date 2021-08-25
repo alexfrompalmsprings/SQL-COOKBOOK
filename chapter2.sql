@@ -9,3 +9,13 @@ SELECT ename,
 FROM emp
 WHERE deptno = 10
 ORDER BY sal ASC
+
+
+-- you can also accomplish the same thing by writing the number of the column
+-- not ZeroBasedIndex
+SELECT ename, 
+		job, 
+		sal
+FROM emp
+WHERE deptno = 10
+ORDER BY 3 DESC
