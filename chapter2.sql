@@ -33,3 +33,12 @@ SELECT empno,
 FROM emp
 ORDER BY  deptno ASC, sal DESC
 
+-- Sorting by Substrings
+
+--Problem
+-- you want to sort the results of a query by specific parts of a string. 
+-- sort by the last two characters in the job fields
+	job
+FROM emp
+ORDER BY SUBSTRING(job, LEN(job)-2, 2)
+
