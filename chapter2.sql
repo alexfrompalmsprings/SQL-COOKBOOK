@@ -68,6 +68,9 @@ ORDER BY comm DESC
 -- use a CASE expression to conditionally sort the column to create a FLAG with two values
 --                      one =           NULLS
 --                      other value =   NOT NULLS
+
+
+-- nonNulls sorted ASC; all NULLS last
 SELECT ename, 
 	sal, 
 	comm
@@ -80,3 +83,46 @@ FROM (
 	FROM emp
 	) x
 ORDER BY is_null DESC, comm, sal ASC
+
+
+-- nonNULLS sorted DESC; all NULLS last
+SELECT ename, 
+	sal, 
+	comm
+FROM (
+	SELECT ename, sal, comm,
+		CASE
+		WHEN comm IS NULL THEN 0
+		ELSE 1
+		END AS is_null
+	FROM emp
+	) x
+ORDER BY is_null DESC, comm DESC
+
+-- nonNULLS sorted ASC; all NULLS first
+SELECT ename, 
+	sal, 
+	comm
+FROM (
+	SELECT ename, sal, comm,
+		CASE
+		WHEN comm IS NULL THEN 0
+		ELSE 1
+		END AS is_null
+	FROM emp
+	) x
+ORDER BY is_null, comm
+
+-- nonNULLS sorted DESC; all NULLS first
+SELECT ename, 
+	sal, 
+	comm
+FROM (
+	SELECT ename, sal, comm,
+		CASE
+		WHEN comm IS NULL THEN 0
+		ELSE 1
+		END AS is_null
+	FROM emp
+	) x
+ORDER BY is_null, comm DESC
