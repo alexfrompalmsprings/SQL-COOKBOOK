@@ -40,5 +40,27 @@ ORDER BY  deptno ASC, sal DESC
 -- sort by the last two characters in the job fields
 	job
 FROM emp
+    -- SUBSTRING(string, start, length)
+    --LEN(string); length of the word
 ORDER BY SUBSTRING(job, LEN(job)-2, 2)
 
+
+-- Dealing with NULLS when Sorting
+
+--Problem
+-- you want to sort results from EMP by COMM, but the field is NULLABLE
+-- find a way to find out the null sorts first/last
+
+-- nulls first
+SELECT ename, 
+	sal, 
+	comm
+FROM emp
+ORDER BY comm
+
+-- order by DESC 
+SELECT ename, 
+	sal, 
+	comm
+FROM emp
+ORDER BY comm DESC
