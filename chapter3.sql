@@ -14,3 +14,16 @@ FROM dept
 UNION All
 SELECT dname, deptno
 FROM dept
+
+
+-- Combining Related Rows
+
+--Problem
+-- you want to return rows from multiple tables by joining 
+-- on a known common column or join on share values
+
+SELECT E.ename, 
+		D.loc
+FROM emp E, dept D 
+WHERE E.deptno = D.deptno 
+    AND E.deptno = 10
