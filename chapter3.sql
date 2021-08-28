@@ -22,8 +22,17 @@ FROM dept
 -- you want to return rows from multiple tables by joining 
 -- on a known common column or join on share values
 
+-- solution with an equijoin
 SELECT E.ename, 
 		D.loc
 FROM emp E, dept D 
 WHERE E.deptno = D.deptno 
     AND E.deptno = 10
+
+-- solution with a traditional inner join
+SELECT E.ename, 
+		D.loc
+FROM emp AS E
+JOIN dept AS D
+ON E.deptno = D.deptno 
+WHERE  E.deptno = 10
