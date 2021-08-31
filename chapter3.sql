@@ -54,3 +54,16 @@ FROM EMP E, V
 WHERE E.ename = V.ename
 	AND E.job = V.job
 	AND E.sal = V.sal
+
+
+-- perform the same join via the JOIN clause
+SELECT E.empno, 
+		E.ename, 
+		E.job, 
+		E.sal, 
+		E.deptno
+FROM EMP E
+JOIN V 
+ON (V.ename = E.ename
+	AND E.job = V.job
+	AND E.sal = V.sal)
