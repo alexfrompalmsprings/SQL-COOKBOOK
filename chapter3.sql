@@ -36,3 +36,21 @@ FROM emp AS E
 JOIN dept AS D
 ON E.deptno = D.deptno 
 WHERE  E.deptno = 10
+
+
+-- Finding Rows in Common Between Table
+
+--Problem
+-- you want to find common rows between two tables but there are 
+-- multiple columns on which you can join.
+
+-- join the Table using multiple join conditions
+SELECT E.empno, 
+		E.ename, 
+		E.job, 
+		E.sal, 
+		E.deptno
+FROM EMP E, V
+WHERE E.ename = V.ename
+	AND E.job = V.job
+	AND E.sal = V.sal
