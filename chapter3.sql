@@ -82,3 +82,28 @@ FROM dept
 -- SubQuery shows all the DEPTNOs in EMP
 WHERE deptno NOT IN (SELECT deptno FROM emp)
 
+
+
+-- Retrieving Rows from One Table That Do Not Corresponds to Rows in Another
+
+--Problem
+-- you want to find rows that are in one table that do not have match in another
+-- ie. find which departments have no Employees
+
+-- . SQL left outer join returns all rows in the left table (A) and all the matching rows found in the right table (B). 
+-- It means the result of the SQL left join always contains the rows in the left table.
+SELECT *
+FROM dept d 
+LEFT OUTER JOIN emp e
+ON (e.DEPTNO = d.DEPTNO)
+
+
+--Solution below works by joining and then keeping only rows that have no
+-- match ~ also called an AntiJoin
+SELECT d.*, e.*
+FROM dept d 
+LEFT OUTER JOIN emp e
+ON (e.DEPTNO = d.DEPTNO)
+WHERE e.deptno IS NULL
+
+
