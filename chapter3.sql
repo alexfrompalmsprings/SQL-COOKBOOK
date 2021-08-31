@@ -67,3 +67,18 @@ JOIN V
 ON (V.ename = E.ename
 	AND E.job = V.job
 	AND E.sal = V.sal)
+
+
+
+-- Retrieving Values from One Table That Do Not Exist in Another
+
+--Problem
+-- you want to find those values in one table
+-- that do not exist in some target table
+
+-- dept 40 from the DEPT table does not exist in EMP table
+SELECT deptno
+FROM dept
+-- SubQuery shows all the DEPTNOs in EMP
+WHERE deptno NOT IN (SELECT deptno FROM emp)
+
