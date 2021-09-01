@@ -107,3 +107,28 @@ ON (e.DEPTNO = d.DEPTNO)
 WHERE e.deptno IS NULL
 
 
+-- Adding Joins to a Query Without Interfering with Other Joins
+
+--Problem
+-- you have a query that returns the results that you want. You need additional information,
+-- but when trying to get it, you lose the data from the original set.
+
+-- ie. you want to return all the employees, 
+-- the location of the departments in which they work, 
+-- and the date they received a bonus
+
+
+-- this table returns the results of all the employees that received a bonus
+SELECT e.ename, d.loc , eb.received
+FROM dept d 
+JOIN emp e ON e.DEPTNO = d.DEPTNO
+JOIN emp_bonus eb ON eb.empno = e.empno 
+
+-- to improve this table; display all the results
+SELECT e.ename, d.loc , eb.received
+FROM dept d 
+JOIN emp e ON e.DEPTNO = d.DEPTNO
+LEFT JOIN emp_bonus eb ON eb.empno = e.empno 
+ORDER BY 2, 1
+
+
