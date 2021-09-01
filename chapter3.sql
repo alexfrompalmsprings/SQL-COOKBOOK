@@ -132,3 +132,15 @@ LEFT JOIN emp_bonus eb ON eb.empno = e.empno
 ORDER BY 2, 1
 
 
+-- Identifying and Avoiding Cartesian Products
+
+--Problem
+-- you want to return the name of each employee in department 10 
+SELECT e.ename, d.loc  
+FROM  emp e
+JOIN dept d
+ON d.DEPTNO = e.DEPTNO
+WHERE d.deptno =10-- along with the location of the department 
+
+
+
