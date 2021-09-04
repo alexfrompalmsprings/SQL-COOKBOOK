@@ -36,3 +36,16 @@ VALUES
 --The DEFAULT keyword in the values list will insert the value that was specified as the default 
 --for a particular column during table creation. 
 create table D (id integer default 0, foo varchar(10))
+
+
+--- Copying Rows from One Table into Another
+
+-- Problem
+-- You want to copy rows from one table to another using a query
+INSERT INTO dept_east(deptno, dname, loc)
+
+SELECT deptno, dname, loc
+FROM dept 
+WHERE loc IN ('New York', 'Boston')
+
+SELECT * FROM dept_east
