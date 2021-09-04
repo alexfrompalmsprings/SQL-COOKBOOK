@@ -143,4 +143,14 @@ ON d.DEPTNO = e.DEPTNO
 WHERE d.deptno =10-- along with the location of the department 
 
 
+-- Using NULLS in Operations and Comparisons
 
+--Problem
+-- you want evaluate values returned by a nullable column like you would evaluate real values
+
+-- ie. you want to find all employeesin EMPh whose commms is less than
+-- the commission of 'ward' 
+FROM emp 
+WHERE COALESCE(comm, 0) < (SELECT comm 
+							FROM emp 
+							WHERE ename = 'ward')
