@@ -26,3 +26,13 @@ VALUES
 -- 30	SALES	CHICAGO
 -- 40	OPERATIONS	BOSTON
 -- 50	Programming	Baltimore
+
+
+-- Inserting Default Values
+
+-- Problem
+-- You want to insert a row of default values without having to specify those values.
+
+--The DEFAULT keyword in the values list will insert the value that was specified as the default 
+--for a particular column during table creation. 
+create table D (id integer default 0, foo varchar(10))
